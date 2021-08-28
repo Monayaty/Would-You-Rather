@@ -42,7 +42,6 @@ class NewPoll extends Component {
   };
 
   render() {
-    console.log(this.props.authedUser);
     const disabled =
       this.state.optionOneText === "" || this.state.optionTwoText === "";
     const { optionOneText, optionTwoText, submitted } = this.state;

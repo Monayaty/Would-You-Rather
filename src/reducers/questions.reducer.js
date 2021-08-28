@@ -20,9 +20,7 @@ export default function questionsReducer(questions = {}, action) {
     }
     case ANSWER_QUESTION: {
       const { authedUser, qid, answer } = action.data;
-      console.log(authedUser, qid, answer);
-      const theQuestionAnswer = questions[qid][answer];
-      console.log(questions[qid][answer]);
+     const theQuestionAnswer = questions[qid][answer];
       return {
         ...questions,
         [qid]: {

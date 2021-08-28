@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import { Redirect, Route } from "react-router-dom";
 
 const PrivateRoute = ({ Component, exact, path, authedUser }) => {
-  console.log(Component, exact, path, authedUser);
-  return (
+ return (
     <Route
       exact={exact}
       path={path}

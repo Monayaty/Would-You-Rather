@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Container, Header, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-class Pagenotexist extends Component {
+class Pagenotexist extends Component { 
   render() {
     return (
       <Container>

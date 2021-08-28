@@ -4,8 +4,9 @@ import { Segment, Button, Label, Icon, Progress } from "semantic-ui-react";
 import { Grid, Image, Header, Form, Radio } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { setAnswerQuestion } from "../../actions/questions.actions";
+
 class Results extends Component {
-  onChange = (e, { value }) =>
+  onChange = ({ value }) =>
     this.setState({
       value,
     });
@@ -29,9 +30,10 @@ class Results extends Component {
     let id = this.props.match.params["question_id"];
 
     const { questions, authedUser, users } = this.props;
-    const question = questions[id];console.log(question);
+    const question = questions[id];
     const user = users[question.author];
     const answer = users[authedUser].answers[id];
+
     const optionOne = question.optionOne.text;
     const optionTwo = question.optionTwo.text;
     const opt1Votes = question.optionOne.votes.length;
@@ -95,7 +97,7 @@ class Results extends Component {
             <Fragment>
               <Header as="h2">Results: </Header>
               <Segment color="green" style={{ backgroundColor: "#baffc0" }}>
-                {answer === "optionOne" ? (
+                {user.answers[id] === "optionOne" ? (
                   <Label color="pink" ribbon="right" className="vote">
                     <Icon
                       name="outline check circle"
@@ -116,7 +118,7 @@ class Results extends Component {
                 </Progress>
               </Segment>
               <Segment color="red" style={{ backgroundColor: "#ffe8ed" }}>
-                {answer === "optionTwo" ? (
+                {user.answers[id] === "optionTwo" ? (
                   <Label color="pink" ribbon="right" className="vote">
                     <Icon
                       name="outline check circle"
@@ -161,8 +163,6 @@ class Results extends Component {
 }
 
 function mapStateToProps({ questions, users, authedUser }) {
-  //   const question = questions[id];
-
   return {
     users,
     authedUser,

@@ -15,7 +15,7 @@ class Header extends Component {
   };
   render() {
     const { activeItem } = this.state;
-    return (
+   return (
       <Segment>
         <Menu attached="top" tabular>
           <Image src="https://i.ibb.co/XzcyqRF/logo.png" size="small" />

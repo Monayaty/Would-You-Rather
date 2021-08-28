@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { Tab } from "semantic-ui-react";
 import Poll from "./Poll";
 import { withRouter } from "react-router";
+
 class Tabs extends Component {
   render() {
-    console.log(this.props);
     const { questionData } = this.props;
     const authedUser = this.props.authedUser;
     const panes = [

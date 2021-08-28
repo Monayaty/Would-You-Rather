@@ -17,8 +17,7 @@ export const formatQuestion = ({
     author
 }) => 
 {
-    console.log(optionOneText, optionTwoText, author)
-    return{
+     return{
         id: generateUID(),
         timestamp: Date.now(),
         author,

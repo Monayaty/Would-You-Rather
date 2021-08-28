@@ -4,6 +4,7 @@ import { receiveQuestions } from "./questions.actions";
 import { setAuthedUser } from "./authedUser.action";
 import { getInitialData } from "../utils/api";
 
+
 const AUTHED_ID = null;
 export const setInitialData = () => {
   return (dispatch) => {

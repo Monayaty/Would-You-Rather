@@ -6,6 +6,7 @@ import { setAuthedUser } from "../../actions/authedUser.action";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import Tap from "./Tabs";
+
 // Main Class
 class Login extends Component {
   state = {
@@ -62,7 +63,7 @@ class Login extends Component {
     return (
       <Segment>
         <Form onSubmit={this.onSubmit}>
-          <Image src="https://i.ibb.co/XzcyqRF/logo.png" size='medium' centered />
+          <Image src="https://i.ibb.co/XzcyqRF/logo.png" size="medium" centered />
           <Form.Select
             placeholder="Select User Name"
             centered="true"
@@ -88,7 +89,7 @@ class Login extends Component {
   }
 }
 
-const mapStateToProps = (state) => state; 
+const mapStateToProps = (state) => state;
 
 // Export
 export default connect(mapStateToProps)(Login);

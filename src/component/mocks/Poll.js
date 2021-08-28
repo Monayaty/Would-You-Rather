@@ -4,6 +4,7 @@ import { Grid, Image, Header, Form, Button } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+
 class Poll extends Component {
   static propTypes = {
     authedUser: PropTypes.string.isRequired,
@@ -55,6 +56,7 @@ class Poll extends Component {
               <Header as="h2">Would you rather</Header>
               <Form onSubmit={this.onSubmit}>
                 <p>...{this.props.question.optionOne.text}</p>
+                
                 <Form.Field>
                   <Button
                     color={btnColor.name}

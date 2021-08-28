@@ -14,6 +14,7 @@ import Poll from "../mocks/Poll";
 import Results from "../mocks/Results";
 import Tabs from "../mocks/Tabs";
 import Pagenotexist from "../mocks/Pagenotexist";
+
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(setInitialData());
@@ -37,6 +38,7 @@ class App extends Component {
                 exact
                 path="/login"
                 name="Login"
+                // authedUser={this.props.authedUser}
                 component={Login}
               />
               <PrivateRoute
@@ -51,21 +53,29 @@ class App extends Component {
                 Component={Results}
                 exact={true}
                 path="/questions/:question_id"
+                // name="Tabs"
                 authedUser={this.props.authedUser}
               />
               <PrivateRoute
                 Component={NewPoll}
                 exact={true}
                 path="/add"
+                // name="Tabs"
                 authedUser={this.props.authedUser}
               />
               <PrivateRoute
                 Component={Leader}
                 exact={true}
                 path="/leaderboard"
+                // name="Tabs"
                 authedUser={this.props.authedUser}
               />
-              <Route exact path="/404" component={Pagenotexist} />
+              <PrivateRoute
+                Component={Pagenotexist}
+                exact={true}
+                path="/404"
+                authedUser={this.props.authedUser}
+              />
               <Redirect to="/404" />
             </Switch>
           </div>
@@ -77,12 +87,14 @@ class App extends Component {
 
 App.propTypes = {
   loading: PropTypes.bool.isRequired,
+  // loggedOut : PropTypes.bool.isRequired
 };
 
 function mapStateToProps({ authedUser }) {
   return {
     loading: authedUser === null,
     authedUser: authedUser,
+    // loggedOut: authedUser === "LOGGED_OUT"
   };
 }
 
